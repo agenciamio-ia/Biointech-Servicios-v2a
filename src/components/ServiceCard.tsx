@@ -42,6 +42,53 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
   // WhatsApp de solicitud de servicio
   const serviceWhatsAppUrl = getServiceWhatsAppUrl(service.title);
 
+  const handlePhotoError = (e: React.SyntheticEvent<HTMLImageElement, Event>, photo: (typeof service.photos)[0], index: number) => {
+    const img = e.currentTarget;
+    const step = parseInt(img.getAttribute('data-err-step') || '0', 10);
+    
+    if (photo.src.includes('/1-serv/')) {
+      const num = index + 1;
+      if (step === 0) {
+        img.setAttribute('data-err-step', '1');
+        img.src = `https://biointech.co/2026/1-serv/${num}.jpg`;
+        return;
+      } else if (step === 1) {
+        img.setAttribute('data-err-step', '2');
+        img.src = `https://biointech.co/2026/1-serv/foto${num}.jpg`;
+        return;
+      } else if (step === 2) {
+        img.setAttribute('data-err-step', '3');
+        img.src = `https://biointech.co/2026/1-serv/foto-${num}.png`;
+        return;
+      }
+    }
+    
+    if (photo.fallback) {
+      img.src = photo.fallback;
+    }
+  };
+
+  const handleInfographicError = (e: React.SyntheticEvent<HTMLImageElement, Event>, src: string, fallback?: string) => {
+    const img = e.currentTarget;
+    const step = parseInt(img.getAttribute('data-err-step') || '0', 10);
+    
+    if (src.includes('/1-serv/')) {
+      if (step === 0) {
+        img.setAttribute('data-err-step', '1');
+        img.src = 'https://biointech.co/2026/1-serv/infografia.png';
+        return;
+      } else if (step === 1) {
+        img.setAttribute('data-err-step', '2');
+        img.src = 'https://biointech.co/2026/1-serv/infografia.jpeg';
+        return;
+      }
+    }
+    
+    if (fallback) {
+      img.src = fallback;
+    }
+  };
+
   return (
     <article 
       id={service.id}
@@ -129,9 +176,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
               <img
                 src={photo.src}
                 alt={photo.alt}
-                onError={(e) => {
-                  if (photo.fallback) e.currentTarget.src = photo.fallback;
-                }}
+                onError={(e) => handlePhotoError(e, photo, idx)}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
@@ -196,9 +241,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
                 <img
                   src={photo.src}
                   alt={photo.alt}
-                  onError={(e) => {
-                    if (photo.fallback) e.currentTarget.src = photo.fallback;
-                  }}
+                  onError={(e) => handlePhotoError(e, photo, idx)}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 
@@ -250,11 +293,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
           <img
             src={service.infographic.src}
             alt={service.infographic.alt}
-            onError={(e) => {
-              if (service.infographic.fallback) {
-                e.currentTarget.src = service.infographic.fallback;
-              }
-            }}
+            onError={(e) => handleInfographicError(e, service.infographic.src, service.infographic.fallback)}
             className="w-full h-full object-cover object-center transform group-hover:scale-102 transition-transform duration-700 opacity-90"
           />
           

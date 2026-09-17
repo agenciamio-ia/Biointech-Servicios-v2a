@@ -11,8 +11,8 @@ export const QuienesSomos: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-100 aspect-[4/4.2]">
               <img
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=85"
-                alt="Ingeniero especialista en planta de tratamiento de hidrocarburos y lodos"
+                src="https://biointech.co/2026/wp-content/uploads/16a-equipo-biointech-1-scaled.jpg"
+                alt="Equipo Biointech en planta de tratamiento de hidrocarburos y lodos"
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent"></div>

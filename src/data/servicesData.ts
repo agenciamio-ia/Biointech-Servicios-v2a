@@ -64,7 +64,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     note: 
       "Nota técnica: Proceso certificado de biorremediación acelerada que restablece la microbiota y equilibrio ecológico de suelos impactados por crudos pesados y lodos aceitosos. Garantizamos reducción verificable de TPHs y entrega de terrenos conformes a la normatividad ambiental vigente con trazabilidad analítica de laboratorio.",
     infographic: {
-      src: "/images/servicios/servicio-1/infografia.jpg",
+      src: "https://biointech.co/2026/1-serv/infografia.jpg",
       fallback: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1600&q=80",
       alt: "Infografía técnica de biorremediación de suelos",
       title: "Ciclo de Biorremediación In-Situ y Ex-Situ Biointech",
@@ -77,70 +77,70 @@ export const SERVICES_LIST: ServiceItem[] = [
     photos: [
       {
         id: "s1-1",
-        src: "/images/servicios/servicio-1/foto-1.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-1.jpg",
         fallback: "https://lh3.googleusercontent.com/aida-public/AB6AXuDVg5whn8Jvp7WmKVRfnrpXYGiA2aLhJR-IGqmEdWFgto-AEpC39Z4dDqJB9on8kBU91RrpTiP70k1bgsEFpXKTdIsoqliTPIqSSz43rz6ldZRMGas-QxgBfjHWYmov7UyWetr8Ka_2uGPqbqt4DejFv7EKqe8DCcXxwUgfAageXH5Lf21VMjlC2cAE3IQ_fZCxJJBu1wb_jvYRdRVwMVeVsQ8cPqYU69pGl2kJmlOQWujv2HVoRL_veOBK40KVniKO-6YfaTPgIA",
         alt: "Operación de biorremediación en campo",
         caption: "Planta y celdas de tratamiento biológico en Casanare"
       },
       {
         id: "s1-2",
-        src: "/images/servicios/servicio-1/foto-2.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-2.jpg",
         fallback: "https://lh3.googleusercontent.com/aida-public/AB6AXuAz8oNdj9Rpnc8Xs8j966gckMKxCbpH7D7VOBtTqmC9VRorjzl0du7kHlmQT3OloYfpuTtbLn9hgGG6PctIBLpca7UJQanfli4kn-_ixTs6sRLKXeJ0lOG3_RY5cMtUqstxxM_ENTqzIsGSu025y14TkZk1_Y5Uirok2XV3P-lsw9ZmZjdZQrBg4a2cw7hBira5X_r6eSeCFDvjLlwlSvfRgo-2PjJ80ikzj0a47zJbOsl35AIaNaph0ifl6bO1-qVmCqidjp3PJg",
         alt: "Pruebas técnicas de suelo y remediación",
         caption: "Muestreo y monitoreo de TPHs in-situ"
       },
       {
         id: "s1-3",
-        src: "/images/servicios/servicio-1/foto-3.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-3.jpg",
         fallback: "https://lh3.googleusercontent.com/aida-public/AB6AXuDjxyhyCfbYPh8yARin4E7ULus1IXoVUfpFvMF_7bDqhi4SNCd6r0bq52fWVF6ZScu7_oLaMzGhtn2li_GwGGlzDG3S_3gdJrrLcsMXS1WpmDx32VyZp75lJesxCvFrhdggl7J5B4pB3W64jO16pHjJiRcBjRKdQ4Undz6a7zJI-Nn4WcrNVzzraJIM8lTZ3wqAMhdBFnuWVBDasZO54nXzVvIXHd9hRfaeR6PDoN5nieC9hsKEDb7kMIgI3qdoxig0VJcx_4zDnQ",
         alt: "Consorcios bacterianos en laboratorio",
         caption: "Bioaumento con cepas altamente degradadoras"
       },
       {
         id: "s1-4",
-        src: "/images/servicios/servicio-1/foto-4.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-4.jpg",
         fallback: "https://lh3.googleusercontent.com/aida-public/AB6AXuBiHPzomFg_gwHZjkpCk2Qy943iN1KB7qIH4o88hRWvsZqowC5KNNc4k9RSqdsIFect8zmCsY9erj28yxovF8J7mLAOH8kWC92Hhs7TL_L_A9gMSz1Ub_S7WXvPk5TQI7tNbxeGQmQhxeUYhm5qgF-lCtPPHpDQQSG9d10rwmz4KfkiY4VLTJLw4gkb0yDJZC2KLSao33sROUqb1b3FMVyRsiqptrp-6iMDuYxZuhVQdXmN2I2ewx5HjDZ-NlnC2JhBjg1J-_u-VQ",
         alt: "Vista aérea de celdas de tratamiento",
         caption: "Manejo masivo de pasivos de hidrocarburos"
       },
       {
         id: "s1-5",
-        src: "/images/servicios/servicio-1/foto-5.jpg",
-        fallback: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
-        alt: "Maquinaria pesada en acondicionamiento de biopilas",
-        caption: "Volteo mecánico y oxigenación programada"
+        src: "https://biointech.co/2026/1-serv/foto-5.jpg",
+        fallback: "https://biointech.co/2026/wp-content/uploads/16a-equipo-biointech-1-scaled.jpg",
+        alt: "Maquinaria pesada y equipo técnico en acondicionamiento de biopilas",
+        caption: "Equipo Biointech en volteo mecánico y oxigenación programada"
       },
       {
         id: "s1-6",
-        src: "/images/servicios/servicio-1/foto-6.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-6.jpg",
         fallback: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80",
         alt: "Análisis microbiológico de control",
         caption: "Verificación de recuentos bacterianos UFC/g"
       },
       {
         id: "s1-7",
-        src: "/images/servicios/servicio-1/foto-7.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-7.jpg",
         fallback: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80",
         alt: "Inoculación de nutrientes biológicos",
         caption: "Aplicación de micronutrientes y surfactantes verdes"
       },
       {
         id: "s1-8",
-        src: "/images/servicios/servicio-1/foto-8.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-8.jpg",
         fallback: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?auto=format&fit=crop&w=800&q=80",
         alt: "Recuperación de textura del suelo",
         caption: "Suelo estabilizado apto para revegetación"
       },
       {
         id: "s1-9",
-        src: "/images/servicios/servicio-1/foto-9.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-9.jpg",
         fallback: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80",
         alt: "Monitoreo instrumental de gases",
         caption: "Control de emisiones y compuestos orgánicos volátiles"
       },
       {
         id: "s1-10",
-        src: "/images/servicios/servicio-1/foto-10.jpg",
+        src: "https://biointech.co/2026/1-serv/foto-10.jpg",
         fallback: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
         alt: "Entrega de suelo libre de hidrocarburos",
         caption: "Cierre de proyecto con certificación ambiental"

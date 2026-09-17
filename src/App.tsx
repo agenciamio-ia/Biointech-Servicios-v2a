@@ -35,7 +35,7 @@ export default function App() {
             <img 
               alt="Paisaje de Casanare e instalaciones de bioremediación" 
               className="w-full h-full object-cover object-center opacity-70"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqHFlXfi5mOFpN6wPaz4nJexZp2dhOOc6cJ9pgb0gn1cQhjqNo_3UQDwBblGnH7C_T2q_o0x-8MH2Cb4_f_wANg5hgsf7c_J36hD_YOzQFN54Jr3nZPPWNG_Gqjc5VJaAiApZg3d3tvX5eEfUITgLiDQ5iG2p62zjaYTNkFNqCliJIhLuyfzc0K5fbVOgwL2B5Jezl_1ZwZOXOufWXDSQ6d6hHdn5s9xAGJ_Mh4bhb7aizut1xaxrqVJ9aUeCwN-QjX_1fKuzuaA" 
+              src="https://biointech.co/2026/wp-content/uploads/biointech-abonos-agenciamio-v12-1.png" 
               referrerPolicy="no-referrer" 
             />
             <div className="absolute inset-0 hero-gradient"></div>

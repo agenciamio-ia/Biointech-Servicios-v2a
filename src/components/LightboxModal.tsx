@@ -25,6 +25,32 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
 
   const currentPhoto = photos[currentIndex] || photos[0];
 
+  const handlePhotoError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const img = e.currentTarget;
+    const step = parseInt(img.getAttribute('data-err-step') || '0', 10);
+    
+    if (currentPhoto.src.includes('/1-serv/')) {
+      const num = currentIndex + 1;
+      if (step === 0) {
+        img.setAttribute('data-err-step', '1');
+        img.src = `https://biointech.co/2026/1-serv/${num}.jpg`;
+        return;
+      } else if (step === 1) {
+        img.setAttribute('data-err-step', '2');
+        img.src = `https://biointech.co/2026/1-serv/foto${num}.jpg`;
+        return;
+      } else if (step === 2) {
+        img.setAttribute('data-err-step', '3');
+        img.src = `https://biointech.co/2026/1-serv/foto-${num}.png`;
+        return;
+      }
+    }
+    
+    if (currentPhoto.fallback) {
+      img.src = currentPhoto.fallback;
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col items-center justify-between p-4 md:p-6 animate-in fade-in duration-200">
       {/* Barra superior */}
@@ -62,11 +88,7 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
           <img
             src={currentPhoto.src}
             alt={currentPhoto.alt}
-            onError={(e) => {
-              if (currentPhoto.fallback) {
-                e.currentTarget.src = currentPhoto.fallback;
-              }
-            }}
+            onError={handlePhotoError}
             className="max-h-[70vh] max-w-full object-contain rounded-lg shadow-2xl"
           />
           {currentPhoto.caption && (
