@@ -1,5 +1,6 @@
 {
   "name": "Biointech Servicios",
-  "description": "",
-  "requestFramePermissions": []
+  "description": "Plataforma oficial de Biointech S.A.S. - Líderes en biorremediación, tratamiento de aguas y lodos, y soluciones ambientales industriales.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

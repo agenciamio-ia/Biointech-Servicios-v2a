@@ -1,0 +1,35 @@
+# CARPETA DE FOTOS E INFOGRAFÍAS PARA SERVICIOS - BIOINTECH
+
+En esta carpeta puedes colocar y reemplazar fácilmente las imágenes desde el administrador de archivos (cPanel, FTP o explorador de hosting).
+
+## Estructura de Carpetas:
+
+- servicio-1/
+  - foto-1.jpg a foto-10.jpg (Galería de Biorremediación)
+  - infografia.jpg (Banner infografía de 500px)
+
+- servicio-2/
+  - foto-1.jpg a foto-10.jpg (Galería de Fitoremediación y Biocultivos)
+  - infografia.jpg (Banner infografía de 500px)
+
+- servicio-3/
+  - foto-1.jpg a foto-10.jpg (Galería de Deshidratación de lodos)
+  - infografia.jpg (Banner infografía de 500px)
+
+- servicio-4/
+  - foto-1.jpg a foto-10.jpg (Galería de Unidad UTC Termo Centrifugado)
+  - infografia.jpg (Banner infografía de 500px)
+
+- servicio-5/
+  - foto-1.jpg a foto-10.jpg (Galería de Tratamiento de Aguas)
+  - infografia.jpg (Banner infografía de 500px)
+
+- servicio-6/
+  - foto-1.jpg a foto-10.jpg (Galería de Gestión INTEGRAL)
+  - infografia.jpg (Banner infografía de 500px)
+
+- servicio-7/
+  - foto-1.jpg a foto-10.jpg (Galería de Certificaciones Biointech)
+  - infografia.jpg (Banner infografía de 500px)
+
+Nota: Si alguna foto no existe aún en tu servidor, el sitio web utilizará automáticamente una fotografía demostrativa en alta resolución como respaldo (fallback), evitando imágenes rotas.
