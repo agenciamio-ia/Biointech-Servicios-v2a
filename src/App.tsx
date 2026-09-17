@@ -35,7 +35,7 @@ export default function App() {
             <img 
               alt="Paisaje de Casanare e instalaciones de bioremediación" 
               className="w-full h-full object-cover object-center opacity-70"
-              src="https://biointech.co/2026/wp-content/uploads/biointech-abonos-agenciamio-v12-1.png" 
+              src="http://biointech.co/2026/wp-content/uploads/banner-servicios-biointech-abonos-agenciamio-v12b-1.jpg" 
               referrerPolicy="no-referrer" 
             />
             <div className="absolute inset-0 hero-gradient"></div>
@@ -109,14 +109,14 @@ export default function App() {
                 PORTAFOLIO OPERATIVO
               </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#002662] font-headline tracking-tight">
-                Nuestros 7 Servicios Especializados!
+                Nuestros Servicios Especializados!
               </h2>
               <p className="text-slate-600 text-base sm:text-lg mt-3">
-                Cada servicio cuenta con galería fotográfica de hasta 10 fotos en alta resolución, descripción técnica e infografía de proceso de 500px lista para ser personalizada desde su hosting.
+                Cada servicio cuenta con galería fotográfica de Biointech S.A.S., verá cómo transformamos pasivos ambientales en activos ecológicos... .
               </p>
             </div>
 
-            {/* Listado de los 7 Servicios con separación superior de 52px */}
+            {/* Listado de los Servicios con separación superior de 52px */}
             <div className="space-y-[52px]">
               {SERVICES_LIST.map((service, index) => (
                 <ServiceCard 
@@ -138,7 +138,7 @@ export default function App() {
             <img 
               alt="Planta Guayacan Casanare" 
               className="w-full h-full object-cover" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMewTgOfhub2WlSxZmzULB-b8_7jjSm-PB2F4WDDGhhHKYKeVd-gJHFrVfPsfAK5ElxClwnKjPq8IRE69teneoE828XskRlr4FHVxePPdynfg15qWnLe--MNpLcgP389W6-beeJMItrV8F_8VQxrCtZgDfXSzA3CTWk68H8ctAaUP2IfhiuLVZ58sUqwsIhMGctrsmjuCSjlUDrmPJC_chmGUmYJG0N-J_gKUMSoH6v5u-npSk7bgQZOLZzqybiAu5ZaRDFLxTgA" 
+              src="http://biointech.co/2026/wp-content/uploads/banner-servicios-biointech-abonos-agenciamio-v12b-1.jpg" 
               referrerPolicy="no-referrer" 
             />
           </div>
@@ -207,7 +207,7 @@ export default function App() {
               ¿Necesita gestionar residuos industriales o recuperar áreas contaminadas?
             </h2>
             <p className="text-slate-100 text-base sm:text-lg max-w-2xl mx-auto mb-10">
-              Obtenga asesoría directa con nuestros ingenieros especializados. Respuesta rápida con alcance técnico y cotización a la medida.
+              Obtenga asesoría directa con nuestros ingenieros especializados. Respuesta rápida con alcance y cotización a su medida.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
