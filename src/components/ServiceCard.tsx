@@ -1,13 +1,11 @@
 import React, { useState, useRef } from 'react';
 import { 
-  ExternalLink, 
   ChevronLeft, 
   ChevronRight, 
   Maximize2, 
   LayoutGrid, 
   SlidersHorizontal,
   MessageCircle,
-  FileCheck2,
   Sparkles
 } from 'lucide-react';
 import { ServiceItem, getServiceWhatsAppUrl } from '../data/servicesData';
@@ -46,19 +44,21 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
     const img = e.currentTarget;
     const step = parseInt(img.getAttribute('data-err-step') || '0', 10);
     
-    if (photo.src.includes('/1-serv/')) {
+    const match = photo.src.match(/\/([1-7])-serv\//);
+    if (match) {
+      const servNum = match[1];
       const num = index + 1;
       if (step === 0) {
         img.setAttribute('data-err-step', '1');
-        img.src = `https://biointech.co/2026/1-serv/${num}.jpg`;
+        img.src = `https://biointech.co/2026/${servNum}-serv/${num}.jpg`;
         return;
       } else if (step === 1) {
         img.setAttribute('data-err-step', '2');
-        img.src = `https://biointech.co/2026/1-serv/foto${num}.jpg`;
+        img.src = `https://biointech.co/2026/${servNum}-serv/foto${num}.jpg`;
         return;
       } else if (step === 2) {
         img.setAttribute('data-err-step', '3');
-        img.src = `https://biointech.co/2026/1-serv/foto-${num}.png`;
+        img.src = `https://biointech.co/2026/${servNum}-serv/foto-${num}.png`;
         return;
       }
     }
@@ -72,14 +72,16 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
     const img = e.currentTarget;
     const step = parseInt(img.getAttribute('data-err-step') || '0', 10);
     
-    if (src.includes('/1-serv/')) {
+    const match = src.match(/\/([1-7])-serv\//);
+    if (match) {
+      const servNum = match[1];
       if (step === 0) {
         img.setAttribute('data-err-step', '1');
-        img.src = 'https://biointech.co/2026/1-serv/infografia.png';
+        img.src = `https://biointech.co/2026/${servNum}-serv/infografia.png`;
         return;
       } else if (step === 1) {
         img.setAttribute('data-err-step', '2');
-        img.src = 'https://biointech.co/2026/1-serv/infografia.jpeg';
+        img.src = `https://biointech.co/2026/${servNum}-serv/infografia.jpeg`;
         return;
       }
     }
@@ -96,9 +98,9 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
         isFirst ? 'mt-0' : 'mt-[52px]'
       }`}
     >
-      {/* 01 & 02: Título y descripción + 03: Botón Ver detalle al lado derecho */}
-      <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 border-b border-slate-200/80 pb-6 mb-8">
-        <div className="max-w-3xl">
+      {/* 01 & 02: Título y descripción (Sin botón Ver Detalle) */}
+      <div className="border-b border-slate-200/80 pb-6 mb-8">
+        <div className="max-w-4xl">
           <div className="flex items-center space-x-3 mb-2">
             <span className="text-secondary font-black text-xl md:text-2xl font-headline">
               {service.number}.
@@ -107,23 +109,10 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
               {service.title}
             </h2>
           </div>
-          {/* Descripción de 2 renglones */}
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed line-clamp-2">
+          {/* Descripción del servicio */}
+          <p className="text-slate-600 text-base md:text-lg leading-relaxed">
             {service.shortDescription}
           </p>
-        </div>
-
-        {/* 03: Botón Ver detalle en ventana nueva */}
-        <div className="shrink-0 pt-1">
-          <a
-            href={service.detailUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center space-x-2 bg-[#002662] hover:bg-[#003882] text-white px-6 py-3 rounded-xl font-bold text-sm tracking-wide transition-all duration-200 shadow-sm hover:shadow active:scale-95 group"
-          >
-            <span>Ver detalle</span>
-            <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
         </div>
       </div>
 
@@ -294,47 +283,25 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
             src={service.infographic.src}
             alt={service.infographic.alt}
             onError={(e) => handleInfographicError(e, service.infographic.src, service.infographic.fallback)}
-            className="w-full h-full object-cover object-center transform group-hover:scale-102 transition-transform duration-700 opacity-90"
+            className="w-full h-full object-cover object-center transform group-hover:scale-102 transition-transform duration-700"
           />
           
-          {/* Degradado y detalles técnicos superpuestos estilo infográfico industrial */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent flex flex-col justify-between p-6 sm:p-8">
-            <div className="flex justify-between items-start">
-              <span className="bg-secondary/90 backdrop-blur-md text-white text-xs font-black tracking-widest uppercase px-3 py-1.5 rounded-md shadow">
-                ESQUEMA TÉCNICO • SERVICIO {service.number}
-              </span>
+          {/* Barra superior técnica sutil (sin banner inferior que tape la infografía) */}
+          <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex justify-between items-start pointer-events-none bg-gradient-to-b from-black/60 to-transparent">
+            <span className="bg-secondary/90 backdrop-blur-md text-white text-xs font-black tracking-widest uppercase px-3 py-1.5 rounded-md shadow pointer-events-auto">
+              ESQUEMA TÉCNICO • SERVICIO {service.number}
+            </span>
 
-              <button
-                type="button"
-                onClick={() => {
-                  // Abrir modal con la infografía
-                  openLightbox(0);
-                }}
-                className="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md p-2.5 rounded-xl transition-all"
-                title="Ampliar infografía"
-              >
-                <Maximize2 className="w-5 h-5" />
-              </button>
-            </div>
-
-            <div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white font-headline tracking-tight mb-4">
-                {service.infographic.title}
-              </h3>
-              
-              {/* Puntos destacados del proceso infográfico */}
-              <div className="grid sm:grid-cols-3 gap-3">
-                {service.infographic.highlights.map((point, pIdx) => (
-                  <div 
-                    key={pIdx}
-                    className="bg-black/40 backdrop-blur-md border border-white/10 p-3.5 rounded-xl text-xs sm:text-sm text-slate-200 flex items-start space-x-2.5"
-                  >
-                    <FileCheck2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
-                    <span className="leading-snug">{point}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <button
+              type="button"
+              onClick={() => {
+                openLightbox(0);
+              }}
+              className="bg-black/40 hover:bg-black/60 text-white backdrop-blur-md p-2.5 rounded-xl transition-all pointer-events-auto shadow"
+              title="Ampliar infografía"
+            >
+              <Maximize2 className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>

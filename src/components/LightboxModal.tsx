@@ -29,19 +29,21 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({
     const img = e.currentTarget;
     const step = parseInt(img.getAttribute('data-err-step') || '0', 10);
     
-    if (currentPhoto.src.includes('/1-serv/')) {
+    const match = currentPhoto.src.match(/\/([1-7])-serv\//);
+    if (match) {
+      const servNum = match[1];
       const num = currentIndex + 1;
       if (step === 0) {
         img.setAttribute('data-err-step', '1');
-        img.src = `https://biointech.co/2026/1-serv/${num}.jpg`;
+        img.src = `https://biointech.co/2026/${servNum}-serv/${num}.jpg`;
         return;
       } else if (step === 1) {
         img.setAttribute('data-err-step', '2');
-        img.src = `https://biointech.co/2026/1-serv/foto${num}.jpg`;
+        img.src = `https://biointech.co/2026/${servNum}-serv/foto${num}.jpg`;
         return;
       } else if (step === 2) {
         img.setAttribute('data-err-step', '3');
-        img.src = `https://biointech.co/2026/1-serv/foto-${num}.png`;
+        img.src = `https://biointech.co/2026/${servNum}-serv/foto-${num}.png`;
         return;
       }
     }
