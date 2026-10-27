@@ -64,7 +64,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Consorcio de bacterias Nativas. Determinamos un consorcio de bacterias nativas no patógenos y altamente biodegradadoras, para la aplicación en suelos contaminados.",
     detailUrl: "https://biointech.co/2026/servicios.html#biorremediacion",
     note: 
-      "Nota técnica: Proceso certificado de biorremediación acelerada que restablece la microbiota y equilibrio ecológico de suelos impactados por crudos pesados y lodos aceitosos. Garantizamos reducción verificable de TPHs y entrega de terrenos conformes a la normatividad ambiental vigente con trazabilidad analítica de laboratorio.",
+      "Nota técnica: Proceso certificado de biorremediación acelerada que restablece la microbiota y equilibrio ecológico de suelos impactados por \"metales\" pesados y lodos aceitosos. Garantizamos reducción verificable de TPHs y entrega de terrenos conformes a la normatividad ambiental vigente con trazabilidad analítica de laboratorio.",
     infographic: {
       src: "https://biointech.co/2026/1-serv/infografia.jpg",
       fallback: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=1600&q=80",
@@ -133,7 +133,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Implementación de especies vegetales hiperacumuladoras y biocultivos agronómicos para la estabilización, extracción de metales y enriquecimiento orgánico de áreas intervenidas por la industria.",
     detailUrl: "https://biointech.co/2026/servicios.html#fitorremediacion",
     note: 
-      "Nota técnica: Solución de fitoextracción y fitoestabilización basada en especies botánicas seleccionadas como Helianthus annuus y pasto Vetiver. Induce la biotransformación radicular de compuestos complejos mientras promueve la reincorporación de materia vegetal al suelo, mitigando la erosión y reconstituyendo la biodiversidad nativa regional.",
+      "Nota técnica: Solución de fitoextracción y fitoestabilización basada en especies botánicas seleccionadas. Induce la biotransformación radicular de compuestos complejos mientras promueve la reincorporación de materia vegetal al suelo, mitigando la erosión y reconstituyendo la biodiversidad nativa regional.",
     infographic: {
       src: "https://biointech.co/2026/2-serv/infografia.jpg",
       fallback: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&w=1600&q=80",
@@ -202,7 +202,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Tecnología geotextil de alta resistencia para el confinamiento, drenaje y deshidratación eficiente de lodos industriales de perforación, fondos de fosa y sedimentos aceitosos.",
     detailUrl: "https://biointech.co/2026/servicios.html#deshidratacion-lodos",
     note: 
-      "Nota técnica: Los geocontenedores tubulares de polipropileno de alta tenacidad retienen hasta un 99% de sólidos finos mediante filtración gravimétrica continua. Reducen el volumen de lodos en más del 80%, disminuyendo drásticamente costos logísticos de transporte y facilitando la disposición final segura en campo.",
+      "Nota técnica: Los geocontenedores tubulares de polipropileno retienen hasta un 99% de sólidos finos mediante filtración continua. Reducen el volumen de lodos en más del 80%, disminuyendo drásticamente costos logísticos de transporte y facilitando la disposición final segura en campo.",
     infographic: {
       src: "https://biointech.co/2026/3-serv/infografia.jpg",
       fallback: "https://images.unsplash.com/photo-1541888946425-d0fbb186c5f7?auto=format&fit=crop&w=1600&q=80",
@@ -271,7 +271,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Tecnología térmica de alto rendimiento y centrifugación trifásica continua para recuperar crudo comercializable a partir de borras aceitosas y emulsiones de fondo de tanque.",
     detailUrl: "https://biointech.co/2026/servicios.html#termo-centrifugado",
     note: 
-      "Nota técnica: La unidad UTC combina calentamiento indirecto por vapor y fuerza centrífuga de alta velocidad para romper emulsiones tenaces. Separa con máxima precisión el hidrocarburo puro apto para refinería (BS&W < 1%), agua clarificada para reuso y sólidos inertes para biorremediación, generando retorno económico para el operador.",
+      "Nota técnica: La unidad UTC combina calentamiento indirecto por vapor y fuerza centrífuga de alta velocidad para romper emulsiones muy estables. Separa con máxima precisión el hidrocarburo puro apto para refinería (BS&W < 1%), agua clarificada para reuso y sólidos inertes para biorremediación, generando retorno económico para el operador.",
     infographic: {
       src: "https://biointech.co/2026/4-serv/infografia.jpg",
       fallback: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80",
@@ -340,7 +340,7 @@ export const SERVICES_LIST: ServiceItem[] = [
       "Sistemas integrales de filtración, clarificación fisicoquímica, flotación DAF y purificación terciaria para la reutilización segura y vertimiento conforme de aguas industriales y de producción.",
     detailUrl: "https://biointech.co/2026/servicios.html#tratamiento-aguas",
     note: 
-      "Nota técnica: Nuestras plantas modulares compactas eliminan hasta un 99.8% de hidrocarburos totales (TPH), sólidos suspendidos totales (SST), grasas y metales pesados disueltos. Cumplimos los más exigentes estándares de vertimiento (Resolución 0631 y normativas internacionales), priorizando esquemas de economía circular con vertimiento cero.",
+      "Nota técnica: Nuestras plantas modulares compactas eliminan hasta un 99.8% de hidrocarburos totales (TPH), sólidos suspendidos totales (SST), grasas y metales pesados disueltos. Cumplimos los más exigentes estándares de vertimiento.",
     infographic: {
       src: "https://biointech.co/2026/5-serv/infografia.jpg",
       fallback: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1600&q=80",

@@ -276,13 +276,13 @@ export default function App() {
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
-                    <Phone className="text-secondary w-6 h-6 shrink-0 mt-1" />
+                  <div className="flex items-start space-x-4 p-5 rounded-2xl bg-slate-50 border border-slate-200/80 shadow-sm">
+                    <Phone className="text-[#002662] w-8 h-8 shrink-0 mt-1" />
                     <div>
-                      <p className="font-bold text-[#002662] text-sm uppercase">Línea Telefónica & WhatsApp</p>
+                      <p className="font-bold text-[#002662] text-xs uppercase tracking-wider">Línea Telefónica & WhatsApp</p>
                       <a 
                         href="tel:+573112888995" 
-                        className="text-slate-700 hover:text-[#002662] text-sm font-semibold transition-colors block"
+                        className="text-3xl sm:text-4xl font-black text-[#002662] hover:text-green-700 transition-colors block tracking-tight my-1"
                       >
                         +57 311 288 8995
                       </a>
@@ -290,9 +290,10 @@ export default function App() {
                         href={WHATSAPP_CONSULTING_URL} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="text-green-600 font-bold text-xs hover:underline mt-0.5 inline-block"
+                        className="inline-flex items-center gap-1.5 text-green-700 hover:text-green-800 font-bold text-sm hover:underline mt-1"
                       >
-                        +57 311 288 8995 (WhatsApp Asesoría Directa)
+                        <MessageCircle className="w-4 h-4 text-green-600 shrink-0" />
+                        Chatear por WhatsApp (Asesoría Directa)
                       </a>
                     </div>
                   </div>
@@ -301,9 +302,19 @@ export default function App() {
 
               {/* Formulario de Requerimientos */}
               <div className="lg:col-span-7 bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-slate-200">
-                <h3 className="text-xl font-black text-[#002662] font-headline mb-6">
-                  Formulario de Solicitud de Servicios
-                </h3>
+                <div className="mb-6">
+                  <div className="flex items-center gap-3 mb-1.5">
+                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center shrink-0 text-green-600">
+                      <MessageCircle className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-black text-[#002662] font-headline tracking-tight">
+                      Solicitud de Servicios Biointech
+                    </h3>
+                  </div>
+                  <p className="text-slate-600 text-sm font-medium sm:ml-13">
+                    enviara información al whatsApp de la empresa.
+                  </p>
+                </div>
                 
                 <form 
                   onSubmit={(e) => {
