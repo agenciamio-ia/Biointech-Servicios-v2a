@@ -66,12 +66,12 @@ export const Header: React.FC = () => {
           >
             Planta
           </a>
-          {/* Botón Proyectos con borde píldora tal como en la imagen */}
+          {/* Botón Certificados con borde píldora */}
           <a 
-            href="https://biointech.co/2026/proyectos.html" 
+            href="https://biointech.co/2026/certificados.html" 
             className="border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-4 py-1.5 rounded-lg font-bold text-sm tracking-wide uppercase transition-all duration-200"
           >
-            Proyectos
+            Certificados
           </a>
           {/* Botón Contacto sólido azul oscuro */}
           <a 
@@ -143,11 +143,11 @@ export const Header: React.FC = () => {
             Planta
           </a>
           <a 
-            href="https://biointech.co/2026/proyectos.html" 
+            href="https://biointech.co/2026/certificados.html" 
             className="block py-2 text-slate-900 border-2 border-slate-900 rounded-md text-center font-bold text-sm uppercase hover:bg-slate-900 hover:text-white transition-colors"
             onClick={() => setMobileMenuOpen(false)}
           >
-            Proyectos
+            Certificados
           </a>
           <a 
             href="https://biointech.co/2026/biointech.html#contacto" 

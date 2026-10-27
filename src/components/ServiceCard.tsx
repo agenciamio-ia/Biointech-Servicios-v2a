@@ -5,10 +5,13 @@ import {
   Maximize2, 
   LayoutGrid, 
   SlidersHorizontal,
-  MessageCircle,
-  Sparkles
+  MessageCircle
 } from 'lucide-react';
-import { ServiceItem, getServiceWhatsAppUrl } from '../data/servicesData';
+import { 
+  ServiceItem, 
+  getServiceWhatsAppUrl, 
+  DEFAULT_GALLERY_FALLBACK 
+} from '../data/servicesData';
 import { LightboxModal } from './LightboxModal';
 
 interface ServiceCardProps {
@@ -20,6 +23,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
   const [viewMode, setViewMode] = useState<'grid' | 'carousel'>('grid');
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [activePhotoIndex, setActivePhotoIndex] = useState(0);
+  const [infographicModalOpen, setInfographicModalOpen] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const openLightbox = (index: number) => {
@@ -63,9 +67,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
       }
     }
     
-    if (photo.fallback) {
-      img.src = photo.fallback;
-    }
+    img.src = photo.fallback || DEFAULT_GALLERY_FALLBACK;
   };
 
   const handleInfographicError = (e: React.SyntheticEvent<HTMLImageElement, Event>, src: string, fallback?: string) => {
@@ -124,28 +126,28 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
           </span>
         </div>
 
-        {/* Alternador de vista: Grid 4 vs Carrusel 10 */}
+        {/* Alternador de vista: Grid 6 vs Carrusel */}
         <div className="flex items-center bg-slate-100 p-1 rounded-xl">
           <button
             onClick={() => setViewMode('grid')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               viewMode === 'grid'
                 ? 'bg-white text-[#002662] shadow-sm'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
-            title="Vista de 4 fotos principales en cuadrícula"
+            title="Vista de 6 fotos en cuadrícula"
           >
             <LayoutGrid className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Cuadrícula (4)</span>
+            <span className="hidden sm:inline">Cuadrícula ({service.photos.length})</span>
           </button>
           <button
             onClick={() => setViewMode('carousel')}
-            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+            className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
               viewMode === 'carousel'
                 ? 'bg-white text-[#002662] shadow-sm'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
-            title="Ver todas las fotos en carrusel horizontal deslizante"
+            title="Ver las fotos en carrusel horizontal deslizante"
           >
             <SlidersHorizontal className="w-3.5 h-3.5" />
             <span>Carrusel ({service.photos.length})</span>
@@ -153,14 +155,14 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
         </div>
       </div>
 
-      {/* Modo 1: GRID de 4 fotos */}
+      {/* Modo 1: GRID de las 6 fotos */}
       {viewMode === 'grid' && (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          {service.photos.slice(0, 4).map((photo, idx) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 mb-8">
+          {service.photos.map((photo, idx) => (
             <div
               key={photo.id || idx}
               onClick={() => openLightbox(idx)}
-              className="group relative rounded-2xl overflow-hidden shadow-md bg-slate-100 aspect-square cursor-pointer hover-lift"
+              className="group relative rounded-2xl overflow-hidden shadow-md bg-slate-100 aspect-square cursor-pointer hover-lift border border-slate-100"
             >
               <img
                 src={photo.src}
@@ -168,40 +170,26 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
                 onError={(e) => handlePhotoError(e, photo, idx)}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
-                <span className="text-white text-xs font-medium line-clamp-1">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
+                <span className="text-white text-[11px] font-medium line-clamp-2 leading-tight">
                   {photo.caption || photo.alt}
                 </span>
-                <span className="text-green-300 text-[11px] font-bold flex items-center mt-1">
+                <span className="text-green-300 text-[10px] font-bold flex items-center mt-1">
                   <Maximize2 className="w-3 h-3 mr-1" /> Ampliar foto
                 </span>
               </div>
-
-              {/* Botón "+ Fotos" en la 4ta foto para acceder a las demás */}
-              {idx === 3 && service.photos.length > 4 && (
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setViewMode('carousel');
-                  }}
-                  className="absolute top-3 right-3 bg-black/75 hover:bg-[#002662] text-white text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm transition-all shadow"
-                >
-                  +{service.photos.length - 4} fotos
-                </button>
-              )}
             </div>
           ))}
         </div>
       )}
 
-      {/* Modo 2: Carrusel Horizontal deslizable (hasta 10 fotos) */}
+      {/* Modo 2: Carrusel Horizontal deslizable */}
       {viewMode === 'carousel' && (
         <div className="relative mb-8 group/carousel">
           {/* Botones de navegación de carrusel */}
           <button
             onClick={() => scrollCarousel('left')}
-            className="absolute -left-3 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/95 text-[#002662] shadow-xl border border-slate-200 flex items-center justify-center hover:bg-[#002662] hover:text-white transition-all transform hover:scale-105 active:scale-95"
+            className="absolute -left-3 md:-left-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/95 text-[#002662] shadow-xl border border-slate-200 flex items-center justify-center hover:bg-[#002662] hover:text-white transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
             aria-label="Desplazar a la izquierda"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -209,7 +197,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
           
           <button
             onClick={() => scrollCarousel('right')}
-            className="absolute -right-3 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/95 text-[#002662] shadow-xl border border-slate-200 flex items-center justify-center hover:bg-[#002662] hover:text-white transition-all transform hover:scale-105 active:scale-95"
+            className="absolute -right-3 md:-right-5 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white/95 text-[#002662] shadow-xl border border-slate-200 flex items-center justify-center hover:bg-[#002662] hover:text-white transition-all transform hover:scale-105 active:scale-95 cursor-pointer"
             aria-label="Desplazar a la derecha"
           >
             <ChevronRight className="w-6 h-6" />
@@ -225,7 +213,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
               <div
                 key={photo.id || idx}
                 onClick={() => openLightbox(idx)}
-                className="w-72 sm:w-80 md:w-96 shrink-0 snap-start group relative rounded-2xl overflow-hidden shadow-md bg-slate-100 aspect-[4/3] cursor-pointer hover-lift"
+                className="w-64 sm:w-72 md:w-80 shrink-0 snap-start group relative rounded-2xl overflow-hidden shadow-md bg-slate-100 aspect-[4/3] cursor-pointer hover-lift border border-slate-100"
               >
                 <img
                   src={photo.src}
@@ -277,8 +265,12 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
           </span>
         </div>
 
-        {/* Banner contenedor con altura exacta de 500px */}
-        <div className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200 group bg-slate-950">
+        {/* Banner contenedor con altura exacta de 500px - Clickeable para maximizar la infografía */}
+        <div 
+          onClick={() => setInfographicModalOpen(true)}
+          className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-lg border border-slate-200 group bg-slate-950 cursor-pointer"
+          title="Haga clic para maximizar la infografía"
+        >
           <img
             src={service.infographic.src}
             alt={service.infographic.alt}
@@ -286,7 +278,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
             className="w-full h-full object-cover object-center transform group-hover:scale-102 transition-transform duration-700"
           />
           
-          {/* Barra superior técnica sutil (sin banner inferior que tape la infografía) */}
+          {/* Barra superior con botón Ampliar Fotografía que maximiza la infografía */}
           <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex justify-between items-start pointer-events-none bg-gradient-to-b from-black/60 to-transparent">
             <span className="bg-secondary/90 backdrop-blur-md text-white text-xs font-black tracking-widest uppercase px-3 py-1.5 rounded-md shadow pointer-events-auto">
               ESQUEMA TÉCNICO • SERVICIO {service.number}
@@ -294,13 +286,15 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
 
             <button
               type="button"
-              onClick={() => {
-                openLightbox(0);
+              onClick={(e) => {
+                e.stopPropagation();
+                setInfographicModalOpen(true);
               }}
-              className="bg-black/40 hover:bg-black/60 text-white backdrop-blur-md p-2.5 rounded-xl transition-all pointer-events-auto shadow"
-              title="Ampliar infografía"
+              className="inline-flex items-center space-x-1.5 bg-black/60 hover:bg-[#002662] text-white backdrop-blur-md px-3.5 py-2 rounded-xl transition-all pointer-events-auto shadow-lg cursor-pointer border border-white/20"
+              title="Ampliar Fotografía de la Infografía"
             >
-              <Maximize2 className="w-5 h-5" />
+              <Maximize2 className="w-4 h-4" />
+              <span className="text-xs font-bold">Ampliar Fotografía</span>
             </button>
           </div>
         </div>
@@ -323,7 +317,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
         </a>
       </div>
 
-      {/* Lightbox para ampliar fotos */}
+      {/* Lightbox para ampliar fotos de galería */}
       <LightboxModal
         isOpen={lightboxOpen}
         onClose={() => setLightboxOpen(false)}
@@ -332,6 +326,25 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({ service, isFirst = fal
         onPrev={() => setActivePhotoIndex((prev) => (prev > 0 ? prev - 1 : service.photos.length - 1))}
         onNext={() => setActivePhotoIndex((prev) => (prev < service.photos.length - 1 ? prev + 1 : 0))}
         serviceTitle={service.title}
+      />
+
+      {/* Lightbox para maximizar la Foto de la Infografía */}
+      <LightboxModal
+        isOpen={infographicModalOpen}
+        onClose={() => setInfographicModalOpen(false)}
+        photos={[
+          {
+            id: `infografia-${service.id}`,
+            src: service.infographic.src,
+            fallback: service.infographic.fallback,
+            alt: service.infographic.alt,
+            caption: service.infographic.title || `Infografía Técnica: ${service.title}`
+          }
+        ]}
+        currentIndex={0}
+        onPrev={() => {}}
+        onNext={() => {}}
+        serviceTitle={`Infografía Técnica • ${service.title}`}
       />
     </article>
   );

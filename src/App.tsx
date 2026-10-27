@@ -33,7 +33,7 @@ export default function App() {
         <section className="relative min-h-[90vh] w-full flex items-center overflow-hidden bg-slate-950">
           <div className="absolute inset-0 z-0">
             <img 
-              alt="Paisaje de Casanare e instalaciones de bioremediación" 
+              alt="Paisaje de Casanare e instalaciones de biorremediación" 
               className="w-full h-full object-cover object-center opacity-70"
               src="http://biointech.co/2026/wp-content/uploads/banner-servicios-biointech-abonos-agenciamio-v12b-1.jpg" 
               referrerPolicy="no-referrer" 
@@ -253,8 +253,8 @@ export default function App() {
                   <div className="flex items-start space-x-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
                     <MapPin className="text-secondary w-6 h-6 shrink-0 mt-1" />
                     <div>
-                      <p className="font-bold text-[#002662] text-sm uppercase">Oficina Bogotá</p>
-                      <p className="text-slate-600 text-sm">Calle 171 No. 55A-41</p>
+                      <p className="font-bold text-[#002662] text-sm uppercase">OFICINA,</p>
+                      <p className="text-slate-600 text-sm font-medium">Bogotá Sabana Norte.</p>
                     </div>
                   </div>
 
@@ -280,8 +280,11 @@ export default function App() {
                     <Phone className="text-secondary w-6 h-6 shrink-0 mt-1" />
                     <div>
                       <p className="font-bold text-[#002662] text-sm uppercase">Línea Telefónica & WhatsApp</p>
-                      <a href="tel:+573160445790" className="text-slate-600 hover:text-[#002662] text-sm transition-colors block">
-                        +57 316 044 5790
+                      <a 
+                        href="tel:+573112888995" 
+                        className="text-slate-700 hover:text-[#002662] text-sm font-semibold transition-colors block"
+                      >
+                        +57 311 288 8995
                       </a>
                       <a 
                         href={WHATSAPP_CONSULTING_URL} 
@@ -289,7 +292,7 @@ export default function App() {
                         rel="noopener noreferrer" 
                         className="text-green-600 font-bold text-xs hover:underline mt-0.5 inline-block"
                       >
-                        +57 318 869 4845 (WhatsApp Asesoría Directa)
+                        +57 311 288 8995 (WhatsApp Asesoría Directa)
                       </a>
                     </div>
                   </div>
@@ -315,7 +318,7 @@ export default function App() {
                     const text = encodeURIComponent(
                       `Hola Biointech! Mi nombre es ${nombre} de la empresa ${empresa}. Deseo cotizar el servicio de ${servicio}. Detalle: ${mensaje}`
                     );
-                    window.open(`https://api.whatsapp.com/send?phone=+573188694845&text=${text}`, '_blank');
+                    window.open(`https://api.whatsapp.com/send?phone=+573112888995&text=${text}`, '_blank');
                   }}
                   className="space-y-5"
                 >
@@ -453,7 +456,7 @@ export default function App() {
               Servicios
             </a>
             <a href="https://biointech.co/2026/planta.html" className="hover:text-white transition-colors">Planta Guayacán</a>
-            <a href="https://biointech.co/2026/proyectos.html" className="hover:text-white transition-colors">Proyectos</a>
+            <a href="https://biointech.co/2026/certificados.html" className="hover:text-white transition-colors">Certificados</a>
             <a href="https://biointech.co/2026/biointech.html#contacto" className="hover:text-white transition-colors">Contacto</a>
           </div>
         </div>
